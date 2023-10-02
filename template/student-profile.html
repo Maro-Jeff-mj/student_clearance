@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class=" text-center container mb-5">
+  <div class="row ">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <p class="lead text-body-secondary text-uppercase"> Student profile</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token%}
+    <fieldset class="form-group">
+      <div class="row g-3">
+        <div class="form-floating col-6 mb-3">
+          {{form.surname}}
+          <label for="floatingInput">Surname</label>
+        </div>
+        <div class="form-floating col-6 mb-3">
+          {{form.othernames}}
+          <label for="floatingInput">Othername</label>
+        </div>
+        <div class="form-floating col-8 ">
+          {{form.directorate}}
+          <label for="floatingInput">Directorate</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.department}}
+          <label for="floatingInput">Department</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.program_of_study}}
+          <label for="floatingInput">Program of study</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.study_mode}}
+          <label for="floatingInput">Study mode</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.state_of_origin}}
+          <label for="floatingInput">State of origin</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.profile_pic}}
+          <label for="floatingInput">Passport photograph</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.id_card}}
+          <label for="floatingInput">Student ID</label>
+        </div>
+        <div class="form-floating col-8">
+          {{form.student_file}}
+          <label for="floatingInput">Student Files</label>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <button type="submit" class="btn btn-outline-success mt-4">Submit</button>
+    </div>
+    <br>
+  </form>
+</div>
+{% endblock content %}

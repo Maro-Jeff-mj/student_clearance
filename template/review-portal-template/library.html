@@ -1,0 +1,20 @@
+{% extends 'review-portal.html' %}
+{% load cart_template_tags %}
+{% block writeup %}
+<h4>chief liberian</h4>
+<p class="text-body-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Officiis dignissimos accusamus, deserunt et ipsa expedita dolor? Aliquam corporis placeat
+    quisquam distinctio ut odit, sunt officia nobis incidunt est. Sequi, autem?</p>
+<hr>
+{% endblock %}
+
+{% block content %}
+<li><a class="text-white text-decoration-none">Total <span
+            class="badge text-bg-danger rounded-pill">{{request.user|get_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+            class="badge text-bg-danger rounded-pill">{{request.user|library_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+            class="badge text-bg-danger rounded-pill">{{request.user|library_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+            class="badge text-bg-danger rounded-pill">{{request.user|library_disapproved}}</span></a></li>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <p class="text-end">2022/2023 session.</p>
+    <p class="">welcome <span>{{request.user.staffprofile.firstname}}</span></p>
+    <div class="card m-5 rounded-3 border shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{request.user.staffprofile.profile_picture.url}}" width="100%" height="260px">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, quis.</div>
+                    {% if user.staffprofile %}
+                    <div class="card-text"><a 
+        {% if request.user.username == 'studentaffair_23' %}
+        href="{% url 'studentaffair-review' %}"
+        {% elif request.user.username == 'studentunion_23' %}
+        href="{% url 'studentunion-review' %}"
+        {% elif request.user.username == 'liberian_23' %}
+        href="{% url 'library-review' %}"
+        {% elif request.user.username == 'sportsoffice_23' %}
+        href="{% url 'sportsoffice-review' %}"
+        {% elif request.user.username == 'nddc-hostel' %}
+        href="{% url 'nddc-hostel-review' %}"
+        {% elif request.user.username == 'noble_hostel' %}
+        href="{% url 'noble-hostel-review' %}"
+        {% elif request.user.username == 'ptdf_wing_a' %}
+        href="{% url 'wing-a-hostel-review' %}"
+        {% elif request.user.username == 'ptdf_wing_b' %}
+        href="{% url 'wing-b-hostel-review' %}"
+        {% elif request.user.username == 'male_hostel' %}
+        href="{% url 'male-hostel-review' %}"
+        {% elif request.user.username == 'csit_hod' %}
+        href="{% url 'csit-hod-review' %}"
+        {% elif request.user.username == 'mec_hod' %}
+        href="{% url 'mec-hod-review' %}"
+        {% elif request.user.username == 'eed_hod' %}
+        href="{% url 'eed-hod-review' %}"
+        {% elif request.user.username == 'safety_hod' %}
+        href="{% url 'safety-hod-review' %}"
+        {% elif request.user.username == 'environ_hod' %}
+        href="{% url 'environ-hod-review' %}"
+        {% elif request.user.username == 'mpre_hod' %}
+        href="{% url 'mpre-hod-review' %}"
+        {% elif request.user.username == 'pngpd_hod' %}
+        href="{% url 'pngpd-hod-review' %}"
+        {% elif request.user.username == 'peg_hod' %}
+        href="{% url 'peg-hod-review' %}"
+        {% elif request.user.username == 'pmbs_hod' %}
+        href="{% url 'pmbs-hod-review' %}"
+        {% elif request.user.username == 'slt_hod' %}
+        href="{% url 'slt-hod-review' %}"
+        {% elif request.user.username == 'woet_hod' %}
+        href="{% url 'woet-hod-review' %}"
+        {% elif request.user.username == 'computer_eng' %}
+        href="{% url 'computer-eng-hod-review' %}"
+        {% elif request.user.username == 'mect_hod' %}
+        href="{% url 'mect-hod-review' %}"
+        {% endif %}
+                        ><small class="text-danger text-decoration-underline">Review portal</small></a></div>
+                    {% else %}
+                    <div class="card-text"><a href="{% url 'staff-profile' %}"><small class="text-danger text-decoration-underline">Complete your profile</small></a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <strong>Staff's Personal Information:</strong>
+    <br>
+    <br>
+    <table class="table bg-body-tertiary table-striped-columns">
+        <tbody>
+            <tr>
+                <th scope="row">USERNAME:</th>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <th scope="row">FIRST NAME:</th>
+                <td>{{user.staffprofile.firstname}}</td>
+            </tr>
+            <tr>
+                <th scope="row">LAST NAME:</th>
+                <td>{{user.staffprofile.lastname}}</td>
+            </tr>
+            <tr>
+                <th scope="row">SEX:</th>
+                <td>{{user.staffprofile.sex}}</td>
+            </tr>
+            <tr>
+                <th scope="row">AGE:</th>
+                <td>{{user.staffprofile.age}}</td>
+            </tr>
+            <tr>
+                <th scope="row">USER ID:</th>
+                <td>{{user.staffprofile.user_id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">JOB STATUS:</th>
+                <td>{{user.staffprofile.job_status}}</td>
+            </tr>
+            <tr>
+                <th scope="row">OFFICE NUMBER:</th>
+                <td>{{user.staffprofile.office_number}}</td>
+            </tr>
+            <tr>
+                <th scope="row">EDUCATIONAL POSITION:</th>
+                <td>{{user.staffprofile.educational_position}}</td>
+            </tr>
+            <tr>
+                <th scope="row">EMAIL:</th>
+                <td>{{user.staffprofile.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container col-xl-10 col-xxl-8 mt-5 px-4 py-5 rounded-3 border shadow-lg">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Staff <span class="text-success fs-1">sign-in</span>
+      </h1>
+      <p class="col-lg-10"><span class="text-muted fs-3">USEFUL INFORMATION.</span>
+        <br><small class="text-body-secondary">PLEASE NOTE THAT THIS LOGIN PAGE IS ONLY FOR THE REGISTERED STAFF ON THIS
+          PLATFORM.
+          <br> Click <a href="{% url 'student-login' %}" class="text-decoration-none">here</a> for student login portal.
+        </small>
+      </p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post">
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        {% endfor %}
+        {% csrf_token%}
+        <div class="form-floating mb-3">
+          <input class="form-control" name="username" id="floatingInput">
+          <label for="floatingInput">UID</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-outline-success" type="submit">Signin</button>
+        <hr class="my-4">
+        <a href="#" class="text-decoration-none"><small class="text-body-secondary text-decoration-none">forgot password
+          </small></a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

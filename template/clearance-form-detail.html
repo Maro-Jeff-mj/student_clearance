@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body style="width: 1000px; margin: auto;">
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="{% url 'home' %}" class="navbar-brand">
+        <img src="{% static 'assets/img/PTINOW.jpg' %}" width="70" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="form-floating ">
+      <section class=" text-center container">
+        <div class="row ">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Petroleum Training Institute <br> P.M.B 20, Effrun</h1>
+            <p class="lead text-body-secondary text-uppercase"> clearance form (regular)</p>
+          </div>
+        </div>
+      </section>
+      <div class="col d-flex flex-row-reverse" style="width: 100%;">
+        <img src="{{object.posted_by.studentprofile.profile_pic.url}}" width="200px" height="250px">
+      </div>
+      <dl class="row">
+        <dt class="col-3 fw-light py-2">NAME OF STUDENT:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.surname}} {{object.othernames}} </dd> <br>
+        <dt class="col-3 fw-light py-2">REISTRATION/MATRIC NO:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.posted_by}}</dd> <br>
+        <dt class="col-3 fw-light py-2">DEPARTMENT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.department}}</dd><br>
+        <dt class="col-3 fw-light py-2">PROGRAM:</dt>
+        <dd class="col-3 truncate text-uppercase py-2">{{object.program_of_study}}</dd> <br>
+        <dt class="col-3 fw-light py-2">DATE OF BIRTH:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.date_of_birth}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE OF COMPLETION:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.date_of_completion}}</dd><br>
+        <dt class="col-3 fw-light py-2">STATE OF ORIGIN:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.posted_by.studentprofile.state_of_origin}}</dd><br>
+        <dt class="col-3 fw-light py-2">PHONE NUMBER:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.phone_number}}</dd><br>
+        <dt class="col-3 fw-light py-2">LIBRARY REGISTRAION NO:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.libary_registration_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">LAST ROOM NUMBER:</dt>
+        <dd class="col-9 text-uppercase py-2">{{object.last_room_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">MATRICULATION RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.mat_receipt_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.mat_receipt_num_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">CONVOCATION GOWN RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.convocation_gown_receipt_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.convocation_gown_receipt_num_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">PTI ALUMINI RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.alumini_receipt_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.alumini_receipt_num_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">SCHOOL FEES(Year-1) RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.school_fees_receipt_year_1}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.school_fees_receipt_year_1_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">SCHOOL FEES(Year-2) RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.school_fees_receipt_year_2}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.school_fees_receipt_year_2_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">ENTERPRENEURSHIP RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.enterpreneur_receipt_num}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.enterpreneur_receipt_num_date}}</dd><br>
+        <dt class="col-3 fw-light py-2">CERTIFICATE PROCESSING FEE RECEIPT:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.certificate_processing_fee_receipt}}</dd><br>
+        <dt class="col-3 fw-light py-2">DATE ISSUED:</dt>
+        <dd class="col-3 text-uppercase py-2">{{object.certificate_processing_fee_receipt_date}}</dd><br>
+        <br><br><br>
+        <dt class="col-5 fw-light py-2">View student documents:</dt>
+        <dd class="col-5 py-2"><a href="{{object.posted_by.studentprofile.student_file.url}}"
+            class="text-decoration-none  fw-light">Click here</a></dd><br>
+        <br>
+        <dt class="col-5 fw-light py-2">Download documents:</dt>
+        <dd class="col-5 py-2"><a href="{{object.posted_by.studentprofile.student_file.url}}"
+            class="text-decoration-none  fw-light">Click here</a></dd><br>
+        <br>
+        {% if request.user == object.posted_by %}
+
+        <dt class="col-3 fw-light py-2"><a href="{% url 'clearance-form-delete' object.pk %}"
+            class="btn btn-danger">Delete</a></dt>
+        {% endif %}
+
+        {% if request.user.username == 'studentaffair_23' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'studentaffair-approve' object.pk %}"
+            class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'studentaffair-disapprove' object.pk %}"
+            class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'studentunion_23' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'studentunion-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'studentunion-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'liberian_23' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'library-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'library-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'sportsoffice_23' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'sportsoffice-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'sportsoffice-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'nddc-hostel' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'nddc-hostel-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'nddc-hostel-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'noble_hostel' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'noble-hostel-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'noble-hostel-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'ptdf_wing_a' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'wing-a-hostel-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'wing-a-hostel-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'ptdf_wing_b' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'wing-b-hostel-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'wing-b-hostel-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'male_hostel' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'male-hostel-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'male-hostel-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'csit_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'csit-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'csit-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'mec_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'mec-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'mec-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'eed_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'eed-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'eed-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'safety_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'safety-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'safety-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'environ_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'environ-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'environ-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'mpre_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'mpre-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'mpre-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'pngpd_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'pngpd-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'pngpd-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'peg_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'peg-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'peg-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'pmbs_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'pmbs-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'pmbs-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'slt_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'slt-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'slt-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'woet_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'woet-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'woet-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'computer_eng' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'computer-eng-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'computer-eng-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% elif request.user.username == 'mect_hod' %}
+        <dt class="col-3 fw-light py-2"><a href="{% url 'mect-hod-approve' object.pk %}" class="btn btn-success">Approve</a></dt>
+        <dd class="col-5 py-2"><a href="{% url 'mect-hod-disapprove' object.pk %}" class="btn btn-danger">Disapprove</a></dd><br>
+        {% endif %}
+      </dl>
+    </div>
+    <br><br>
+    <div class="text-center">This form is strictly for regular students.</div>
+    <br><br>
+  </div>
+</body>
+
+</html>

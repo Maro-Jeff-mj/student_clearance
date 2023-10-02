@@ -1,0 +1,146 @@
+{% extends 'review-portal.html' %}
+{% load cart_template_tags %}
+{% block writeup %}
+<h4>All Department</h4>
+<p class="text-body-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Officiis dignissimos accusamus, deserunt et ipsa expedita dolor? Aliquam corporis placeat
+    quisquam distinctio ut odit, sunt officia nobis incidunt est. Sequi, autem?</p>
+<hr>
+{% endblock %}
+       
+
+{% block content %}
+
+{% if request.user.username == 'csit_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|csit_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|csit_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|csit_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|csit_disapproved}}</span></a></li>
+{% elif request.user.username == 'mec_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mec_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mec_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mec_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mec_disapproved}}</span></a></li>
+{% elif request.user.username == 'eed_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|eed_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|eed_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|eed_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|eed_disapproved}}</span></a></li>
+{% elif request.user.username == 'safety_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|safety_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|safety_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|safety_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|safety_disapproved}}</span></a></li>
+{% elif request.user.username == 'environ_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|environ_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|environ_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|environ_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|environ_disapproved}}</span></a></li>
+{% elif request.user.username == 'mpre_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mpre_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mpre_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mpre_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mpre_disapproved}}</span></a></li>
+{% elif request.user.username == 'pngpd_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pngpd_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pngpd_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pngpd_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pngpd_disapproved}}</span></a></li>
+{% elif request.user.username == 'peg_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|peg_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|peg_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|peg_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|peg_disapproved}}</span></a></li>
+{% elif request.user.username == 'pmbs_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pmbs_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pmbs_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pmbs_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|pmbs_disapproved}}</span></a></li>
+{% elif request.user.username == 'slt_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|slt_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|slt_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|slt_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|slt_disapproved}}</span></a></li>
+{% elif request.user.username == 'woet_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|woet_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|woet_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|woet_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|woet_disapproved}}</span></a></li>
+{% elif request.user.username == 'computer_eng' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|computer_eng_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|computer_eng_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|computer_eng_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|computer_eng_disapproved}}</span></a></li>
+{% elif request.user.username == 'mect_hod' %}
+
+<li><a class="text-white text-decoration-none">Total <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mect_total}}</span> </a></li>
+<li><a class="text-white text-decoration-none">Pending <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mect_pending}}</span></a></li>
+<li><a class="text-white text-decoration-none">Approved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mect_approved}}</span></a></li>
+<li><a class="text-white text-decoration-none">Disapproved <span
+    class="badge text-bg-danger rounded-pill">{{request.user|mect_disapproved}}</span></a></li>
+{% endif %}
+
+{% endblock %} 

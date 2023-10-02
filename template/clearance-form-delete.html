@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearance</title>
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="navbar-brand">
+                <img src="{% static 'assets/img/PTINOW.jpg' %}" width="70" alt="">
+            </a>
+        </div>
+    </nav>
+
+    <div class="modal modal-sheet position-static d-block bg-body-secondary p-5 py-5 my-5" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-3 shadow">
+                <div class="modal-body p-4 text-center">
+                    <h5 class="mb-0">Once deleted it can't be recovered</h5> <br>
+                    <p class="mb-0"> Are you sure you want to delete?
+                    </p>
+                </div>
+
+                <form method="post">
+                    {% csrf_token%}
+                    <div class="modal-footer flex-nowrap">
+                        <button type="submit"
+                            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Yes,
+                                delete</strong></button>
+                </form>
+                <a type="button" href="{% url 'student-dashboard' %}"
+                    class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0">Cancel</a>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  
+<section class=" text-center container mb-5">
+  <div class="row ">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <p class="lead text-body-secondary text-uppercase"> Staff profile
+    </div>
+  </div>
+</section>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+        <fieldset class="form-group">
+          <div class="row g-3">
+            <div class="form-floating col-6 mb-3">
+              {{form.firstname}}
+              <label for="floatingInput">Firstname</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              {{form.lastname}}
+              <label for="floatingInput">Lastname</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.user_id}}
+              <label for="floatingInput">User ID</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.sex}}
+              <label for="floatingInput">Sex</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.age}}
+              <label for="floatingInput">Age</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.job_status}}
+              <label for="floatingInput">Job status</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.office_number}}
+              <label for="floatingInput">Office number</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.educational_position}}
+              <label for="floatingInput">Educational position</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.email}}
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              {{form.profile_picture}}
+              <label for="floatingInput">Profile Picture </label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-success mt-4">Submit</button>
+        </div>
+        <br>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body style="width: 1000px; margin: auto;">
+
+  <nav class="navbar mb-2">
+    <div class="container">
+      <a href="{% url 'home' %}" class="navbar-brand">
+        <img src="{% static 'assets/img/PTINOW.jpg' %}" width="70" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="form-floating mb-3">
+
+    <section class=" text-center container mb-5">
+      <div class="row ">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Petroleum Training Institute <br> P.M.B 20, Effrun</h1> <br>
+          <p class="lead text-body-secondary text-uppercase"> clearance form (regular)</p>
+        </div>
+      </div>
+    </section>
+    <div class="container px-3">
+      <form method="post">
+        {% csrf_token%}
+        <fieldset class="form-group">
+          <div class="row g-3">
+            <div class="form-floating col-6 mb-3">
+              {{form.surname}}
+              <label for="floatingInput">Surname</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              {{form.othernames}}
+              <label for="floatingInput">Othername</label>
+            </div>
+            <div class="form-floating col-8 mb-3">
+              {{form.department}}
+              <label for="floatingInput">Department</label>
+            </div>
+            <div class="form-floating col-8 mb-3">
+              {{form.sex}}
+              <label for="floatingInput">Sex</label>
+            </div>
+            <div class="form-floating col-4 mb-3">
+              {{form.program_of_study}}
+              <label for="floatingInput">Program of study</label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.phone_number}}
+              <label for="floatingInput">Phone number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.date_of_completion.label}}
+                {{form.date_of_completion}}
+              </span>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.date_of_birth.label}}
+                {{form.date_of_birth}}
+              </span>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.last_room_num}}
+              <label for="floatingInput">Last room number (optional) </label>
+            </div>
+            <div class="form-floating col-7 mb-3">
+              {{form.libary_registration_num}}
+              <label for="floatingInput">Libery reistration number </label>
+            </div>
+            <br>
+            <div class="form-floating col-6 mb-3">
+              {{form.mat_receipt_num}}
+              <label for="floatingInput">Matriculation receipt number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.mat_receipt_num_date.label}}
+                {{form.mat_receipt_num_date}}
+              </span>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              {{form.convocation_gown_receipt_num}}
+              <label for="floatingInput">Convocation gown receipt number </label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.convocation_gown_receipt_num_date.label}}
+                {{form.convocation_gown_receipt_num_date}}
+              </span>
+            </div>
+
+            <div class="form-floating col-6 mb-3">
+              {{form.alumini_receipt_num}}
+              <label for="floatingInput">Alumini receipt number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.alumini_receipt_num_date.label}}
+                {{form.alumini_receipt_num_date}}
+              </span>
+            </div>
+
+            <div class="form-floating col-6 mb-3">
+              {{form.school_fees_receipt_year_1}}
+              <label for="floatingInput">School fees receipt(Year-1) receipt number </label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.school_fees_receipt_year_1_date.label}}
+                {{form.school_fees_receipt_year_1_date}}
+              </span>
+            </div>
+
+            <div class="form-floating col-6 mb-3">
+              {{form.school_fees_receipt_year_2}}
+              <label for="floatingInput">School fees receipt(Year-2) receipt number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.school_fees_receipt_year_2_date.label}}
+                {{form.school_fees_receipt_year_2_date}}
+              </span>
+            </div>
+
+            <div class="form-floating col-6 mb-3">
+              {{form.enterpreneur_receipt_num}}
+              <label for="floatingInput">Enterpreneurship receipt number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.enterpreneur_receipt_num_date.label}}
+                {{form.enterpreneur_receipt_num_date}}
+              </span>
+            </div>
+
+            <div class="form-floating col-6 mb-3">
+              {{form.certificate_processing_fee_receipt}}
+              <label for="floatingInput">Certificate processing fee receipt number</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <span class="text-muted">
+                {{form.certificate_processing_fee_receipt_date.label}}:
+                {{form.certificate_processing_fee_receipt_date}}
+              </span>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-success mt-4">Submit</button>
+        </div>
+        <br>
+      </form>
+    </div>
+    <div class="container mt-5">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-body-secondary">My portal home</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Need help?contact us.</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'user-logout' %}" class="nav-link px-2 text-body-secondary">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Signin</a></li>
+          {%endif%}
+        </ul>
+        <p class="text-center text-body-secondary">&copy;2023 CSIT dev, Inc</p>
+      </footer>
+    </div>
+
+</body>
+
+<script src="{% static './assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+</html>

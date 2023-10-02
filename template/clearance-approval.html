@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearance</title>
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="navbar-brand">
+                <img src="{% static 'assets/img/PTINOW.jpg' %}" width="70" alt="">
+            </a>
+        </div>
+    </nav>
+
+    <div class="modal modal-sheet position-static d-block bg-body-secondary p-5 py-5 my-5" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-3 shadow">
+                <div class="modal-body p-4 text-center">
+                    {% block content %}
+                    <h5 class="mb-0">Approve this student?</h5> <br>
+                    <p class="mb-0">I hereby certify that the information share be true and correct after completing all
+                        clearance formalities,
+                        I shall be held liable if the information is not true and handed over to <strong>LAW ENFORCEMENT
+                            AGENT</strong> for prosecution.
+                    </p>
+                </div>
+
+                <form method="post">
+                    {% csrf_token%}
+                    <div class="modal-footer flex-nowrap">
+                        <button type="submit"
+                            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Yes,
+                                approve</strong></button>
+                    </form>
+                    {% endblock %}
+                        <a type="button"
+                        
+        {% if request.user.username == 'studentaffair_23' %}
+        href="{% url 'studentaffair-review' %}"
+        {% elif request.user.username == 'studentunion_23' %}
+        href="{% url 'studentunion-review' %}"
+        {% elif request.user.username == 'liberian_23' %}
+        href="{% url 'library-review' %}"
+        {% elif request.user.username == 'sportsoffice_23' %}
+        href="{% url 'sportsoffice-review' %}"
+        {% elif request.user.username == 'nddc-hostel' %}
+        href="{% url 'nddc-hostel-review' %}"
+        {% elif request.user.username == 'noble_hostel' %}
+        href="{% url 'noble-hostel-review' %}"
+        {% elif request.user.username == 'ptdf_wing_a' %}
+        href="{% url 'wing-a-hostel-review' %}"
+        {% elif request.user.username == 'ptdf_wing_b' %}
+        href="{% url 'wing-b-hostel-review' %}"
+        {% elif request.user.username == 'male_hostel' %}
+        href="{% url 'male-hostel-review' %}"
+        {% elif request.user.username == 'csit_hod' %}
+        href="{% url 'csit-hod-review' %}"
+        {% elif request.user.username == 'mec_hod' %}
+        href="{% url 'mec-hod-review' %}"
+        {% elif request.user.username == 'eed_hod' %}
+        href="{% url 'eed-hod-review' %}"
+        {% elif request.user.username == 'safety_hod' %}
+        href="{% url 'safety-hod-review' %}"
+        {% elif request.user.username == 'environ_hod' %}
+        href="{% url 'environ-hod-review' %}"
+        {% elif request.user.username == 'mpre_hod' %}
+        href="{% url 'mpre-hod-review' %}"
+        {% elif request.user.username == 'pngpd_hod' %}
+        href="{% url 'pngpd-hod-review' %}"
+        {% elif request.user.username == 'peg_hod' %}
+        href="{% url 'peg-hod-review' %}"
+        {% elif request.user.username == 'pmbs_hod' %}
+        href="{% url 'pmbs-hod-review' %}"
+        {% elif request.user.username == 'slt_hod' %}
+        href="{% url 'slt-hod-review' %}"
+        {% elif request.user.username == 'woet_hod' %}
+        href="{% url 'woet-hod-review' %}"
+        {% elif request.user.username == 'computer_eng' %}
+        href="{% url 'computer-eng-hod-review' %}"
+        {% elif request.user.username == 'mect_hod' %}
+        href="{% url 'mect-hod-review' %}"
+        {% endif %}
+                            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0">Cancel</a>
+
+                    </div>
+               
+                
+            </div>
+    </div>
+</body>
+</html>
